@@ -3,335 +3,365 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#4285f4">
-    <title>Gestão de Veículos - Mobile</title>
+    <title>Gestão de Veículos</title>
 
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="icon.png">
 
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --primary: #4285f4;
+            --primary-dark: #3367d6;
+            --success: #34a853;
+            --warning: #fbbc05;
+            --danger: #ea4335;
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-secondary: #6b7280;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 16px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             min-height: 100vh;
-            padding: 20px;
-            color: #333;
+            padding-bottom: 80px;
+            /* Space for bottom nav */
         }
 
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
+        /* Header Area */
+        .app-header {
+            background-color: var(--primary);
             color: white;
-            margin-bottom: 30px;
-            padding: 20px;
+            padding: 40px 20px 80px 20px;
+            /* Extra bottom padding for overlap */
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+            text-align: center;
         }
 
-        .header h1 {
-            font-size: 24px;
+        .app-title {
+            font-size: 22px;
+            font-weight: 700;
             margin-bottom: 5px;
         }
 
-        .header p {
+        .app-subtitle {
             font-size: 14px;
             opacity: 0.9;
         }
 
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        /* Main Container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+            margin-top: -60px;
+            /* Overlap header */
         }
 
-        .btn-group {
+        /* Dashboard Widget */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Actions Grid */
+        .actions-grid {
             display: grid;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        .btn {
-            padding: 18px;
+        .action-btn {
+            background: var(--card-bg);
             border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
             text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:active {
+            transform: scale(0.98);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background: #4285f4;
-            color: white;
-        }
-
-        .btn-success {
-            background: #0f9d58;
-            color: white;
-        }
-
-        .btn-danger {
-            background: #db4437;
-            color: white;
-        }
-
-        .btn-warning {
-            background: #f4b400;
-            color: white;
-        }
-
-        .btn:active {
-            transform: scale(0.95);
-        }
-
-        .icon {
             font-size: 24px;
+            margin-right: 15px;
+            flex-shrink: 0;
         }
 
-        .info-box {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 4px solid #4285f4;
+        .btn-content {
+            flex-grow: 1;
         }
 
-        .info-box h3 {
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: #4285f4;
+        .btn-title {
+            font-size: 16px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 2px;
         }
 
-        .info-box p {
-            font-size: 13px;
-            line-height: 1.5;
-            color: #666;
+        .btn-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
         }
 
-        .status-bar {
+        /* Colors for Icons */
+        .bg-blue {
+            background-color: #e8f0fe;
+            color: var(--primary);
+        }
+
+        .bg-green {
+            background-color: #e6f4ea;
+            color: var(--success);
+        }
+
+        .bg-red {
+            background-color: #fce8e6;
+            color: var(--danger);
+        }
+
+        .bg-yellow {
+            background-color: #fef7e0;
+            color: #f9ab00;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
             display: flex;
             justify-content: space-around;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            padding: 12px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 100;
+            padding-bottom: max(12px, env(safe-area-inset-bottom));
         }
 
-        .status-item {
-            text-align: center;
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 11px;
+            gap: 4px;
+            width: 60px;
         }
 
-        .status-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: #4285f4;
+        .nav-item.active {
+            color: var(--primary);
         }
 
-        .status-label {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
+        .nav-icon {
+            font-size: 20px;
         }
 
-        .quick-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .quick-action {
-            padding: 15px;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: white;
-            border: 2px solid #e0e0e0;
-        }
-
-        .quick-action:active {
-            transform: scale(0.95);
-            background: #f8f9fa;
-        }
-
-        .quick-action-icon {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .quick-action-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .footer {
-            text-align: center;
-            color: white;
-            font-size: 12px;
-            margin-top: 30px;
-            opacity: 0.8;
-        }
-
+        /* Install Prompt */
         .install-prompt {
-            background: #fff3cd;
-            color: #856404;
-            padding: 15px;
-            border-radius: 8px;
+            background: var(--warning);
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 12px;
             margin-bottom: 20px;
             display: none;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: var(--shadow-md);
         }
 
         .install-prompt.show {
             display: flex;
         }
 
-        .install-btn {
-            background: #856404;
-            color: white;
+        .install-btn-action {
+            background: rgba(0, 0, 0, 0.1);
             border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
             cursor: pointer;
-            margin-left: auto;
         }
 
-        @media (max-width: 400px) {
-            .header h1 {
-                font-size: 20px;
-            }
-
-            .btn {
-                padding: 15px;
-                font-size: 14px;
-            }
-
-            .quick-actions {
-                grid-template-columns: 1fr;
-            }
+        /* Section Title */
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 
 <body>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="app-title">🚗 Gestão de Veículos</div>
+        <div class="app-subtitle">Sistema Oficial</div>
+    </header>
+
+    <!-- Content -->
     <div class="container">
-        <div class="header">
-            <h1>🚗 Gestão de Veículos</h1>
-            <p>Sistema Oficial - Versão Mobile</p>
-        </div>
 
+        <!-- PWA Install -->
         <div class="install-prompt" id="installPrompt">
-            <span>📱 Instale este app para acesso rápido</span>
-            <button class="install-btn" id="installBtn">Instalar</button>
+            <span>📲 Instalar App</span>
+            <button class="install-btn-action" id="installBtn">Instalar</button>
         </div>
 
-        <div class="card">
-            <h2 style="margin-bottom: 20px; font-size: 18px;">Menu Principal</h2>
-
-            <div class="btn-group">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCzA3w-GavTVlUnPebC7hRwxYdBzt605mh9MfGk71_nolzg/viewform"
-                    class="btn btn-primary">
-                    <span class="icon">📝</span>
-                    <span>Solicitar Corrida</span>
-                </a>
-
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJBrIVov8OH57_Y_pcBuR7pUHNP9BxiLN860Y5BMbBFqpU7Q/viewform"
-                    class="btn btn-success">
-                    <span class="icon">🚀</span>
-                    <span>Iniciar Corrida</span>
-                </a>
-
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScssgCZVCqya2RCwXDqfBePjp842Jp8DcdKfTMCfbksqhjQWw/viewform"
-                    class="btn btn-danger">
-                    <span class="icon">🏁</span>
-                    <span>Encerrar Corrida</span>
-                </a>
-
-                <a href="https://docs.google.com/spreadsheets/d/1HO5JMqvvgouQgFXc8yBWcylIihc0Nny5lRsIrZUD89w/edit"
-                    class="btn btn-warning">
-                    <span class="icon">📊</span>
-                    <span>Dashboard / Relatórios</span>
-                </a>
+        <!-- Stats Dashboard -->
+        <div class="dashboard-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="corridasHoje">0</div>
+                <div class="stat-label">Corridas Hoje</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="kmHoje">0</div>
+                <div class="stat-label">KM Rodados</div>
             </div>
         </div>
 
-        <div class="card">
-            <h3 style="margin-bottom: 15px; font-size: 16px;">Status Hoje</h3>
-            <div class="status-bar">
-                <div class="status-item">
-                    <div class="status-value" id="corridasHoje">0</div>
-                    <div class="status-label">Corridas</div>
+        <!-- Main Actions -->
+        <div class="section-title">Menu Principal</div>
+        <div class="actions-grid">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCzA3w-GavTVlUnPebC7hRwxYdBzt605mh9MfGk71_nolzg/viewform"
+                class="action-btn">
+                <div class="icon-box bg-blue">📝</div>
+                <div class="btn-content">
+                    <span class="btn-title">Solicitar Corrida</span>
+                    <span class="btn-desc">Para agendamentos e pedidos</span>
                 </div>
-                <div class="status-item">
-                    <div class="status-value" id="kmHoje">0</div>
-                    <div class="status-label">KM Rodados</div>
-                </div>
-            </div>
-        </div>
+            </a>
 
-        <div class="card">
-            <h3 style="margin-bottom: 15px; font-size: 16px;">Acesso Rápido</h3>
-            <div class="quick-actions">
-                <div class="quick-action" onclick="abrirUsuarios()">
-                    <div class="quick-action-icon">👥</div>
-                    <div class="quick-action-label">Usuários</div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJBrIVov8OH57_Y_pcBuR7pUHNP9BxiLN860Y5BMbBFqpU7Q/viewform"
+                class="action-btn">
+                <div class="icon-box bg-green">🚀</div>
+                <div class="btn-content">
+                    <span class="btn-title">Iniciar Corrida</span>
+                    <span class="btn-desc">Check-out de saída do veículo</span>
                 </div>
-                <div class="quick-action" onclick="abrirLog()">
-                    <div class="quick-action-icon">📋</div>
-                    <div class="quick-action-label">Histórico</div>
-                </div>
-                <div class="quick-action" onclick="abrirAjuda()">
-                    <div class="quick-action-icon">❓</div>
-                    <div class="quick-action-label">Ajuda</div>
-                </div>
-                <div class="quick-action" onclick="compartilhar()">
-                    <div class="quick-action-icon">🔗</div>
-                    <div class="quick-action-label">Compartilhar</div>
-                </div>
-            </div>
-        </div>
+            </a>
 
-        <div class="info-box">
-            <h3>ℹ️ Instruções de Uso</h3>
-            <p>
-                <strong>Solicitantes:</strong> Use "Solicitar Corrida" para criar uma nova solicitação.<br><br>
-                <strong>Motoristas:</strong> Use "Iniciar Corrida" ao sair e "Encerrar Corrida" ao retornar.<br><br>
-                <strong>Gestores:</strong> Acompanhe tudo pelo Dashboard.
-            </p>
-        </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScssgCZVCqya2RCwXDqfBePjp842Jp8DcdKfTMCfbksqhjQWw/viewform"
+                class="action-btn">
+                <div class="icon-box bg-red">🏁</div>
+                <div class="btn-content">
+                    <span class="btn-title">Encerrar Corrida</span>
+                    <span class="btn-desc">Check-in e registro de KM final</span>
+                </div>
+            </a>
 
-        <div class="footer">
-            Sistema de Gestão de Veículos v1.0<br>
-            Conforme LGPD | Contratos Públicos Federais
+            <a href="https://docs.google.com/spreadsheets/d/1HO5JMqvvgouQgFXc8yBWcylIihc0Nny5lRsIrZUD89w/edit"
+                class="action-btn">
+                <div class="icon-box bg-yellow">📊</div>
+                <div class="btn-content">
+                    <span class="btn-title">Dashboard</span>
+                    <span class="btn-desc">Relatórios e indicadores</span>
+                </div>
+            </a>
         </div>
     </div>
 
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <div class="nav-icon">🏠</div>
+            <span>Início</span>
+        </a>
+        <a href="javascript:abrirUsuarios()" class="nav-item">
+            <div class="nav-icon">👥</div>
+            <span>Usuários</span>
+        </a>
+        <a href="javascript:compartilhar()" class="nav-item">
+            <div class="nav-icon">🔗</div>
+            <span>Partilhar</span>
+        </a>
+        <a href="javascript:abrirAjuda()" class="nav-item">
+            <div class="nav-icon">❓</div>
+            <span>Ajuda</span>
+        </a>
+    </nav>
+
     <script>
+        // --- Logic preserved from original version ---
+
         // PWA Install Prompt
         let deferredPrompt;
-
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
@@ -347,24 +377,22 @@
             }
         });
 
-        // Service Worker Registration
+        // Service Worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js')
-                .then(reg => console.log('Service Worker registrado'))
-                .catch(err => console.log('Erro no Service Worker:', err));
+                .then(reg => console.log('SW registrado'))
+                .catch(err => console.log('SW erro:', err));
         }
 
-        // Funções de navegação
+        // Navigation Functions
+        const PLANILHA_URL = 'https://docs.google.com/spreadsheets/d/1HO5JMqvvgouQgFXc8yBWcylIihc0Nny5lRsIrZUD89w/edit';
+
         function abrirUsuarios() {
-            window.location.href = 'https://docs.google.com/spreadsheets/d/1HO5JMqvvgouQgFXc8yBWcylIihc0Nny5lRsIrZUD89w/edit#gid=0';
-        }
-
-        function abrirLog() {
-            window.location.href = 'https://docs.google.com/spreadsheets/d/1HO5JMqvvgouQgFXc8yBWcylIihc0Nny5lRsIrZUD89w/edit#gid=0';
+            window.location.href = PLANILHA_URL + '#gid=0';
         }
 
         function abrirAjuda() {
-            alert('Sistema de Gestão de Veículos\n\nPara suporte, entre em contato com o setor de TI.');
+            alert('Sistema de Gestão de Veículos\n\nSuporte TI: (XX) XXXX-XXXX\nVersão 1.0');
         }
 
         async function compartilhar() {
@@ -372,30 +400,28 @@
                 try {
                     await navigator.share({
                         title: 'Gestão de Veículos',
-                        text: 'Acesse o sistema de gestão de veículos',
+                        text: 'Acesse o App:',
                         url: window.location.href
                     });
                 } catch (err) {
-                    console.log('Erro ao compartilhar:', err);
+                    console.log('Erro share:', err);
                 }
             } else {
-                alert('Link copiado para a área de transferência!');
+                alert('Link copiado!');
                 navigator.clipboard.writeText(window.location.href);
             }
         }
 
-        // Atualizar estatísticas (simulado - em produção conectar com Google Sheets API)
+        // Simulação de dados (futuramente integrar com API)
         function atualizarEstatisticas() {
-            // Aqui você pode integrar com a API do Google Sheets
-            // Por enquanto, valores estáticos
+            // Em produção, isso viria de um fetch() no Apps Script
             document.getElementById('corridasHoje').textContent = '0';
             document.getElementById('kmHoje').textContent = '0';
         }
 
-        // Atualizar ao carregar
         atualizarEstatisticas();
 
-        // Prevenir zoom acidental
+        // Prevent zoom on inputs
         document.addEventListener('gesturestart', function (e) {
             e.preventDefault();
         });
