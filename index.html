@@ -284,18 +284,6 @@
             <button class="install-btn-action" id="installBtn">Instalar</button>
         </div>
 
-        <!-- Stats Dashboard -->
-        <div class="dashboard-grid">
-            <div class="stat-card">
-                <div class="stat-value" id="corridasHoje">0</div>
-                <div class="stat-label">Corridas Hoje</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" id="kmHoje">0</div>
-                <div class="stat-label">KM Rodados</div>
-            </div>
-        </div>
-
         <!-- Main Actions -->
         <div class="section-title">Menu Principal</div>
         <div class="actions-grid">
@@ -325,15 +313,6 @@
                     <span class="btn-desc">Check-in e registro de KM final</span>
                 </div>
             </a>
-
-            <a href="https://docs.google.com/spreadsheets/d/1HO5JMqvvgouQgFXc8yBWcylIihc0Nny5lRsIrZUD89w/edit"
-                class="action-btn">
-                <div class="icon-box bg-yellow">📊</div>
-                <div class="btn-content">
-                    <span class="btn-title">Dashboard</span>
-                    <span class="btn-desc">Relatórios e indicadores</span>
-                </div>
-            </a>
         </div>
     </div>
 
@@ -342,10 +321,6 @@
         <a href="#" class="nav-item active">
             <div class="nav-icon">🏠</div>
             <span>Início</span>
-        </a>
-        <a href="javascript:abrirUsuarios()" class="nav-item">
-            <div class="nav-icon">👥</div>
-            <span>Usuários</span>
         </a>
         <a href="javascript:compartilhar()" class="nav-item">
             <div class="nav-icon">🔗</div>
@@ -385,14 +360,9 @@
         }
 
         // Navigation Functions
-        const PLANILHA_URL = 'https://docs.google.com/spreadsheets/d/1HO5JMqvvgouQgFXc8yBWcylIihc0Nny5lRsIrZUD89w/edit';
-
-        function abrirUsuarios() {
-            window.location.href = PLANILHA_URL + '#gid=0';
-        }
 
         function abrirAjuda() {
-            alert('Sistema de Gestão de Veículos\n\nSuporte TI: (XX) XXXX-XXXX\nVersão 1.0');
+            alert('Sistema de Gestão de Veículos\n\nSuporte TI WhatsApp: (31) 98789-8667\nVersão 1.0');
         }
 
         async function compartilhar() {
