@@ -1,9 +1,9 @@
 // Service Worker para PWA - Gestão de Veículos
 const CACHE_NAME = 'gestao-veiculos-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json'
+  './',
+  './index.html',
+  './manifest.json'
 ];
 
 // Instalação do Service Worker

@@ -2,9 +2,9 @@
   "name": "Gestão de Veículos - Sistema Oficial",
   "short_name": "Veículos",
   "description": "Sistema de gestão de veículos para contratos públicos federais",
-  "start_url": "/",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#667eea",
+  "background_color": "#f0f2f5",
   "theme_color": "#4285f4",
   "orientation": "portrait",
   "icons": [
@@ -19,7 +19,10 @@
       "type": "image/png"
     }
   ],
-  "categories": ["productivity", "business"],
+  "categories": [
+    "productivity",
+    "business"
+  ],
   "lang": "pt-BR",
   "dir": "ltr"
 }
