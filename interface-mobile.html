@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#4285f4">
+  <title>Gestão de Veículos - Mobile</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icon.png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-group {
+      display: grid;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 18px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-primary {
+      background: #4285f4;
+      color: white;
+    }
+
+    .btn-success {
+      background: #0f9d58;
+      color: white;
+    }
+
+    .btn-danger {
+      background: #db4437;
+      color: white;
+    }
+
+    .btn-warning {
+      background: #f4b400;
+      color: white;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    .icon {
+      font-size: 24px;
+    }
+
+    .info-box {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      border-left: 4px solid #4285f4;
+    }
+
+    .info-box h3 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #4285f4;
+    }
+
+    .info-box p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #666;
+    }
+
+    .status-bar {
+      display: flex;
+      justify-content: space-around;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .status-item {
+      text-align: center;
+    }
+
+    .status-value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #4285f4;
+    }
+
+    .status-label {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .quick-action {
+      padding: 15px;
+      text-align: center;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: white;
+      border: 2px solid #e0e0e0;
+    }
+
+    .quick-action:active {
+      transform: scale(0.95);
+      background: #f8f9fa;
+    }
+
+    .quick-action-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .quick-action-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .footer {
+      text-align: center;
+      color: white;
+      font-size: 12px;
+      margin-top: 30px;
+      opacity: 0.8;
+    }
+
+    .install-prompt {
+      background: #fff3cd;
+      color: #856404;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .install-prompt.show {
+      display: flex;
+    }
+
+    .install-btn {
+      background: #856404;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    @media (max-width: 400px) {
+      .header h1 {
+        font-size: 20px;
+      }
+
+      .btn {
+        padding: 15px;
+        font-size: 14px;
+      }
+
+      .quick-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🚗 Gestão de Veículos</h1>
+      <p>Sistema Oficial - Versão Mobile</p>
+    </div>
+
+    <div class="install-prompt" id="installPrompt">
+      <span>📱 Instale este app para acesso rápido</span>
+      <button class="install-btn" id="installBtn">Instalar</button>
+    </div>
+
+    <div class="card">
+      <h2 style="margin-bottom: 20px; font-size: 18px;">Menu Principal</h2>
+
+      <div class="btn-group">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTCzA3w-GavTVlUnPebC7hRwxYdBzt605mh9MfGk71_nolzg/viewform"
+          class="btn btn-primary">
+          <span class="icon">📝</span>
+          <span>Solicitar Corrida</span>
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJBrIVov8OH57_Y_pcBuR7pUHNP9BxiLN860Y5BMbBFqpU7Q/viewform"
+          class="btn btn-success">
+          <span class="icon">🚀</span>
+          <span>Iniciar Corrida</span>
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScssgCZVCqya2RCwXDqfBePjp842Jp8DcdKfTMCfbksqhjQWw/viewform"
+          class="btn btn-danger">
+          <span class="icon">🏁</span>
+          <span>Encerrar Corrida</span>
+        </a>
+
+        <a href="https://docs.google.com/spreadsheets/d/1HO5JMqvvgouQgFXc8yBWcylIihc0Nny5lRsIrZUD89w/edit"
+          class="btn btn-warning">
+          <span class="icon">📊</span>
+          <span>Dashboard / Relatórios</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom: 15px; font-size: 16px;">Status Hoje</h3>
+      <div class="status-bar">
+        <div class="status-item">
+          <div class="status-value" id="corridasHoje">0</div>
+          <div class="status-label">Corridas</div>
+        </div>
+        <div class="status-item">
+          <div class="status-value" id="kmHoje">0</div>
+          <div class="status-label">KM Rodados</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-bottom: 15px; font-size: 16px;">Acesso Rápido</h3>
+      <div class="quick-actions">
+        <div class="quick-action" onclick="abrirUsuarios()">
+          <div class="quick-action-icon">👥</div>
+          <div class="quick-action-label">Usuários</div>
+        </div>
+        <div class="quick-action" onclick="abrirLog()">
+          <div class="quick-action-icon">📋</div>
+          <div class="quick-action-label">Histórico</div>
+        </div>
+        <div class="quick-action" onclick="abrirAjuda()">
+          <div class="quick-action-icon">❓</div>
+          <div class="quick-action-label">Ajuda</div>
+        </div>
+        <div class="quick-action" onclick="compartilhar()">
+          <div class="quick-action-icon">🔗</div>
+          <div class="quick-action-label">Compartilhar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>ℹ️ Instruções de Uso</h3>
+      <p>
+        <strong>Solicitantes:</strong> Use "Solicitar Corrida" para criar uma nova solicitação.<br><br>
+        <strong>Motoristas:</strong> Use "Iniciar Corrida" ao sair e "Encerrar Corrida" ao retornar.<br><br>
+        <strong>Gestores:</strong> Acompanhe tudo pelo Dashboard.
+      </p>
+    </div>
+
+    <div class="footer">
+      Sistema de Gestão de Veículos v1.0<br>
+      Conforme LGPD | Contratos Públicos Federais
+    </div>
+  </div>
+
+  <script>
+    // PWA Install Prompt
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      document.getElementById('installPrompt').classList.add('show');
+    });
+
+    document.getElementById('installBtn').addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        document.getElementById('installPrompt').classList.remove('show');
+      }
+    });
+
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Service Worker registrado'))
+        .catch(err => console.log('Erro no Service Worker:', err));
+    }
+
+    // Funções de navegação
+    function abrirUsuarios() {
+      window.location.href = 'https://docs.google.com/spreadsheets/d/1HO5JMqvvgouQgFXc8yBWcylIihc0Nny5lRsIrZUD89w/edit#gid=0';
+    }
+
+    function abrirLog() {
+      window.location.href = 'https://docs.google.com/spreadsheets/d/1HO5JMqvvgouQgFXc8yBWcylIihc0Nny5lRsIrZUD89w/edit#gid=0';
+    }
+
+    function abrirAjuda() {
+      alert('Sistema de Gestão de Veículos\n\nPara suporte, entre em contato com o setor de TI.');
+    }
+
+    async function compartilhar() {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: 'Gestão de Veículos',
+            text: 'Acesse o sistema de gestão de veículos',
+            url: window.location.href
+          });
+        } catch (err) {
+          console.log('Erro ao compartilhar:', err);
+        }
+      } else {
+        alert('Link copiado para a área de transferência!');
+        navigator.clipboard.writeText(window.location.href);
+      }
+    }
+
+    // Atualizar estatísticas (simulado - em produção conectar com Google Sheets API)
+    function atualizarEstatisticas() {
+      // Aqui você pode integrar com a API do Google Sheets
+      // Por enquanto, valores estáticos
+      document.getElementById('corridasHoje').textContent = '0';
+      document.getElementById('kmHoje').textContent = '0';
+    }
+
+    // Atualizar ao carregar
+    atualizarEstatisticas();
+
+    // Prevenir zoom acidental
+    document.addEventListener('gesturestart', function (e) {
+      e.preventDefault();
+    });
+  </script>
+</body>
+
+</html>
