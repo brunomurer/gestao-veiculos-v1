@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Manual do Solicitante - Gestão de Veículos</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2980b9;
+            margin-bottom: 10px;
+            font-size: 28pt;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            font-size: 18pt;
+            border-bottom: 1px solid #eee;
+        }
+
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+            font-size: 14pt;
+        }
+
+        .highlight-box {
+            background-color: #f0f7fb;
+            border-left: 5px solid #2980b9;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 11pt;
+        }
+
+        .warning-box {
+            background-color: #fff3f3;
+            border-left: 5px solid #e74c3c;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background-color: #f0fff4;
+            border-left: 5px solid #2ecc71;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .link-box {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            word-break: break-all;
+        }
+
+        blockquote {
+            font-style: italic;
+            border-left: 3px solid #ccc;
+            padding-left: 15px;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .print-btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .link-box a {
+                text-decoration: none;
+                color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="window.print()" class="print-btn">🖨️ Imprimir Manual / Salvar PDF</button>
+
+    <div class="header">
+        <h1>MANUAL DO SOLICITANTE</h1>
+        <p>Sistema de Gestão de Veículos • Versão 1.0 • Janeiro 2025</p>
+    </div>
+
+    <h2>🎯 PARA QUE SERVE ESTE SISTEMA?</h2>
+    <p>Este sistema permite que você solicite o uso do veículo oficial da instituição de forma rápida, organizada e
+        transparente.</p>
+
+    <div class="link-box">
+        <h3>🚗 Solicitar Veículo Oficial</h3>
+        <p><a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeTCzA3w-GavTVlUnPebC7hRwxYdBzt605mh9MfGk71_nolzg/viewform">https://docs.google.com/forms/d/e/1FAIpQLSeTCzA3w-GavTVlUnPebC7hRwxYdBzt605mh9MfGk71_nolzg/viewform</a>
+        </p>
+        <p><small>💡 DICA: Salve este link nos favoritos!</small></p>
+    </div>
+
+    <h2>✅ QUANDO VOCÊ PODE SOLICITAR?</h2>
+    <p>Você pode solicitar o veículo oficial para:</p>
+    <ul class="success-box">
+        <li>✅ Reuniões externas a trabalho</li>
+        <li>✅ Visitas técnicas</li>
+        <li>✅ Representação institucional</li>
+        <li>✅ Transporte de documentos oficiais</li>
+        <li>✅ Outras atividades oficiais aprovadas</li>
+    </ul>
+
+    <p>❌ <strong>NÃO pode solicitar para:</strong></p>
+    <ul class="warning-box">
+        <li>Assuntos pessoais</li>
+        <li>Atividades não relacionadas ao trabalho</li>
+        <li>Eventos particulares</li>
+    </ul>
+
+    <div style="page-break-after: always;"></div>
+
+    <h2>📝 COMO SOLICITAR UMA CORRIDA</h2>
+
+    <h3>PASSO 1: Planeje com antecedência</h3>
+    <p><strong>Com no mínimo 24 horas de antecedência:</strong></p>
+    <ul>
+        <li>Verifique se realmente precisa do veículo</li>
+        <li>Confirme data, horário e destino</li>
+        <li>Tenha o endereço completo</li>
+    </ul>
+    <div class="warning-box">
+        <strong>⚠️ IMPORTANTE:</strong>
+        <p>Solicitações de última hora podem não ser atendidas. O gestor precisa de tempo para aprovar e organizar.
+            Planeje sempre com antecedência!</p>
+    </div>
+
+    <h3>PASSO 2: Acesse o formulário</h3>
+    <ol>
+        <li>Clique no link: <strong>Solicitar Veículo Oficial</strong></li>
+        <li>Ou escaneie o QR Code (se disponível)</li>
+        <li>Faça login com seu email institucional</li>
+    </ol>
+
+    <h3>PASSO 3: Preencha o formulário</h3>
+    <p>O formulário tem 8 campos. Veja como preencher:</p>
+
+    <ul>
+        <li><strong>📝 Nome Completo</strong> (obrigatório): Digite seu nome completo (Ex: João Silva Santos)</li>
+        <li><strong>🏢 Setor/Departamento</strong> (obrigatório): Ex: Recursos Humanos</li>
+        <li><strong>📍 Destino</strong> (obrigatório): Informe endereço completo!
+            <ul>
+                <li>✅ BOM: "Rua das Flores, 123 - Centro - Juiz de Fora/MG"</li>
+                <li>❌ RUIM: "Centro"</li>
+            </ul>
+        </li>
+        <li><strong>📋 Motivo da Viagem</strong> (obrigatório): Explique brevemente (Ex: "Reunião com fornecedores")
+        </li>
+        <li><strong>👥 Número de Passageiros</strong> (obrigatório): Incluindo você.</li>
+        <li><strong>📅 Data Desejada</strong> (obrigatório): Formato DD/MM/AAAA.</li>
+        <li><strong>🕐 Horário Desejado</strong> (obrigatório): Seja pontual!</li>
+        <li><strong>💬 Observações Adicionais</strong> (opcional): Info extra (Ex: "Retorno previsto às 15h")</li>
+    </ul>
+
+    <h3>PASSO 4: Revise e envie</h3>
+    <p><strong>Antes de clicar em ENVIAR:</strong> Confira todos os dados, verifique o endereço e confirme a
+        data/horário.</p>
+
+    <h3>PASSO 5: Confirmação</h3>
+    <p>Após enviar, você receberá um email com o número da solicitação (Ex: SOL-20250128-001). <strong>Guarde este
+            número!</strong></p>
+
+    <div style="page-break-after: always;"></div>
+
+    <h2>⏳ E AGORA? O QUE ACONTECE?</h2>
+
+    <h3>1. Análise pelo Gestor</h3>
+    <p>O gestor verificará a disponibilidade de veículo e motorista. O tempo de resposta normal é de até 24 horas.</p>
+
+    <h3>2. Você será notificado</h3>
+    <p>Você receberá um email informando se foi ✅ APROVADA ou ❌ NEGADA.</p>
+
+    <h3>3. No dia da viagem</h3>
+    <p>Se aprovado, esteja pronto no horário e local combinados com os documentos necessários.</p>
+
+    <h2>✅ DICAS PARA UMA BOA SOLICITAÇÃO</h2>
+    <div class="highlight-box">
+        <p>✅ <strong>Seja específico no destino:</strong> Em vez de "Próximo ao shopping", use "Rua X, 100".</p>
+        <p>✅ <strong>Justifique adequadamente:</strong> Em vez de "Preciso ir lá", use "Reunião sobre licitação".</p>
+        <p>✅ <strong>Planeje o horário:</strong> Considere trânsito e distância. Deixe margem de segurança.</p>
+        <p>✅ <strong>Comunique mudanças:</strong> Cancele se não for necessário ou avise atrasos.</p>
+    </div>
+
+    <h2>⚠️ REGRAS IMPORTANTES</h2>
+    <ul class="warning-box">
+        <li>❌ <strong>Não minta no motivo:</strong> Suas solicitações são auditadas.</li>
+        <li>❌ <strong>Não solicite para terceiros:</strong> Cada pessoa faz sua própria solicitação.</li>
+        <li>❌ <strong>Não altere o destino sem avisar:</strong> O motorista precisa saber.</li>
+        <li>❌ <strong>Não use para assuntos pessoais:</strong> Veículo oficial é apenas para trabalho!</li>
+    </ul>
+
+    <div style="page-break-after: always;"></div>
+
+    <h2>📚 EXEMPLOS PRÁTICOS</h2>
+
+    <div class="success-box">
+        <h3>✅ EXEMPLO 1: Solicitação Bem Feita</h3>
+        <p><strong>Nome:</strong> Maria Santos Silva<br>
+            <strong>Setor:</strong> Compras<br>
+            <strong>Destino:</strong> Av. Brasil, 500 - Ed. Empresarial - Sala 203 - Centro - Juiz de Fora/MG<br>
+            <strong>Motivo:</strong> Reunião para cotação de materiais de escritório - Processo 2025/001<br>
+            <strong>Passageiros:</strong> 2<br>
+            <strong>Data:</strong> 30/01/2025<br>
+            <strong>Horário:</strong> 14:00<br>
+            <strong>Observações:</strong> Retorno previsto às 16h. Necessário transportar amostras.
+        </p>
+        <p><em>Por que está bom? Endereço completo, justificativa clara e informações úteis.</em></p>
+    </div>
+
+    <div class="warning-box">
+        <h3>❌ EXEMPLO 2: Solicitação Mal Feita</h3>
+        <p><strong>Nome:</strong> João<br>
+            <strong>Setor:</strong> RH<br>
+            <strong>Destino:</strong> Centro<br>
+            <strong>Motivo:</strong> Preciso ir lá<br>
+            <strong>Data:</strong> Amanhã<br>
+            <strong>Horário:</strong> De manhã
+        </p>
+        <p><em>Por que está ruim? Nome incompleto, destino vago, motivo fraco, data imprecisa.</em></p>
+    </div>
+
+    <h2>🎓 CONCLUSÃO</h2>
+    <blockquote>
+        O veículo oficial é patrimônio público. Sua solicitação deve ser sempre profissional, honesta e bem justificada.
+        O uso adequado beneficia todos!
+    </blockquote>
+    <p style="text-align: center; font-weight: bold; margin-top: 30px;">Em caso de dúvida, SEMPRE pergunte!</p>
+
+</body>
+
+</html>

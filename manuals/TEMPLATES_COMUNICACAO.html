@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Templates de Comunicação - Gestão de Veículos</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            font-size: 24pt;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            font-size: 18pt;
+            border-bottom: 1px solid #eee;
+        }
+
+        h3 {
+            color: #16a085;
+            margin-top: 25px;
+            font-size: 14pt;
+        }
+
+        code,
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 11pt;
+            white-space: pre-wrap;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .header-info {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        .print-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            pre,
+            code {
+                border: 1px solid #ccc;
+                background-color: #fff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="window.print()" class="print-btn">🖨️ Imprimir / Salvar como PDF</button>
+
+    <div class="header-info">
+        <h1>TEMPLATES DE COMUNICAÇÃO</h1>
+        <p>Sistema de Gestão de Veículos | Versão 1.0</p>
+    </div>
+
+    <h2>📧 EMAILS AUTOMÁTICOS</h2>
+
+    <h3>1. Email de Confirmação de Solicitação</h3>
+    <p><strong>Assunto:</strong> Solicitação de Veículo Recebida - {ID_SOLICITACAO}</p>
+    <pre>
+Prezado(a) {NOME_SOLICITANTE},
+
+Sua solicitação de uso do veículo oficial foi recebida com sucesso!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DADOS DA SOLICITAÇÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Número da Solicitação: {ID_SOLICITACAO}
+Data/Hora da Solicitação: {DATA_HORA}
+Solicitante: {NOME_SOLICITANTE}
+Setor: {SETOR}
+
+Destino: {DESTINO}
+Data Desejada: {DATA_DESEJADA}
+Horário Desejado: {HORA_DESEJADA}
+Passageiros: {NUM_PASSAGEIROS}
+
+Status: PENDENTE DE APROVAÇÃO
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+O que acontece agora?
+
+→ Sua solicitação será analisada pelo gestor
+→ Você será notificado da decisão em até 24 horas
+→ Se aprovada, será informado qual motorista foi designado
+
+IMPORTANTE: Mantenha este email para referência futura.
+
+Em caso de dúvidas, entre em contato:
+{NOME_GESTOR} - {EMAIL_GESTOR}
+
+Atenciosamente,
+Sistema de Gestão de Veículos
+    </pre>
+
+    <h3>2. Email de Aprovação</h3>
+    <p><strong>Assunto:</strong> ✅ Solicitação APROVADA - {ID_SOLICITACAO}</p>
+    <pre>
+Prezado(a) {NOME_SOLICITANTE},
+
+Ótima notícia! Sua solicitação foi APROVADA!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INFORMAÇÕES DA VIAGEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Número da Solicitação: {ID_SOLICITACAO}
+Status: APROVADA ✅
+
+Motorista Designado: {NOME_MOTORISTA}
+Telefone do Motorista: {TELEFONE_MOTORISTA}
+
+Data da Viagem: {DATA_DESEJADA}
+Horário: {HORA_DESEJADA}
+Destino: {DESTINO}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+INSTRUÇÕES IMPORTANTES:
+
+✓ Esteja pronto 10 minutos antes do horário combinado
+✓ Aguarde no local de embarque previamente acordado
+✓ Tenha em mãos todos os documentos necessários
+✓ Em caso de atraso ou impedimento, avise imediatamente
+
+CANCELAMENTO: Se precisar cancelar, avise com antecedência!
+
+Contato de emergência: {TELEFONE_EMERGENCIA}
+
+Tenha uma ótima viagem!
+
+Atenciosamente,
+Sistema de Gestão de Veículos
+    </pre>
+
+    <div style="page-break-after: always;"></div>
+
+    <h3>3. Email de Negativa</h3>
+    <p><strong>Assunto:</strong> ❌ Solicitação NÃO APROVADA - {ID_SOLICITACAO}</p>
+    <pre>
+Prezado(a) {NOME_SOLICITANTE},
+
+Informamos que sua solicitação não foi aprovada.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+INFORMAÇÕES DA SOLICITAÇÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Número da Solicitação: {ID_SOLICITACAO}
+Status: NÃO APROVADA ❌
+
+Motivo: {MOTIVO_NEGATIVA}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PRÓXIMOS PASSOS:
+
+Você pode:
+→ Fazer nova solicitação com data/horário diferente
+→ Buscar alternativas de transporte
+→ Entrar em contato para mais esclarecimentos
+
+Para dúvidas ou reconsideração:
+{NOME_GESTOR} - {EMAIL_GESTOR}
+Telefone: {TELEFONE_GESTOR}
+
+Atenciosamente,
+Sistema de Gestão de Veículos
+    </pre>
+
+    <h3>4. Email de Lembrete (1 dia antes)</h3>
+    <p><strong>Assunto:</strong> 🔔 Lembrete: Viagem Amanhã - {ID_SOLICITACAO}</p>
+    <pre>
+Prezado(a) {NOME_SOLICITANTE},
+
+Este é um lembrete sobre sua viagem AMANHÃ.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DETALHES DA VIAGEM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Data: {DATA_VIAGEM}
+Horário: {HORA_VIAGEM}
+Destino: {DESTINO}
+
+Motorista: {NOME_MOTORISTA}
+Contato: {TELEFONE_MOTORISTA}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CHECKLIST:
+
+[ ] Confirme que ainda precisa da viagem
+[ ] Esteja pronto 10 minutos antes
+[ ] Tenha documentos necessários
+[ ] Salve o contato do motorista
+
+Se precisar CANCELAR, avise AGORA!
+Contato: {TELEFONE_GESTOR}
+
+Até amanhã!
+
+Sistema de Gestão de Veículos
+    </pre>
+
+    <div style="page-break-after: always;"></div>
+
+    <h2>📋 TEMPLATES DE DOCUMENTOS</h2>
+
+    <h3>5. Termo de Responsabilidade do Motorista</h3>
+    <pre>
+TERMO DE RESPONSABILIDADE - USO DE VEÍCULO OFICIAL
+
+Eu, {NOME_MOTORISTA}, CPF {CPF}, motorista oficial, 
+declaro estar ciente e concordar com:
+
+1. RESPONSABILIDADES:
+   • Dirigir com prudência e respeitar o Código de Trânsito
+   • Zelar pela conservação do veículo
+   • Registrar corretamente início e fim de cada corrida
+   • Informar imediatamente qualquer problema mecânico
+   • Não usar o veículo para fins pessoais
+
+2. USO DO SISTEMA:
+   • Preencher formulário de INÍCIO antes de sair
+   • Preencher formulário de FIM ao retornar
+   • Informar quilometragem EXATA
+   • Registrar qualquer ocorrência
+
+3. PENALIDADES:
+   Estou ciente que o uso inadequado do veículo ou do sistema
+   pode resultar em sanções administrativas conforme legislação.
+
+4. LGPD:
+   Declaro ciência sobre a Lei 13.709/2018 e comprometo-me a:
+   • Não divulgar dados de solicitantes
+   • Manter sigilo sobre informações do sistema
+   • Usar dados apenas para fins do serviço
+
+Local: _______________  Data: ___/___/______
+
+___________________________________
+Assinatura do Motorista
+
+___________________________________
+Testemunha (Gestor)
+    </pre>
+
+    <div style="page-break-after: always;"></div>
+
+    <h3>6. Formulário de Ocorrência</h3>
+    <pre>
+REGISTRO DE OCORRÊNCIA - VEÍCULO OFICIAL
+
+Data: ___/___/______  Hora: ___:___
+
+ID da Corrida: _______________________________
+
+Motorista: ____________________________________
+
+Tipo de Ocorrência:
+[ ] Acidente de trânsito
+[ ] Pane mecânica
+[ ] Multa de trânsito
+[ ] Dano ao veículo
+[ ] Outra: _____________________
+
+Descrição Detalhada:
+_________________________________________________
+_________________________________________________
+_________________________________________________
+_________________________________________________
+
+Local da Ocorrência: __________________________
+
+Havia passageiros? [ ] Sim [ ] Não
+Se sim, quantos? _____
+
+Boletim de Ocorrência registrado? [ ] Sim [ ] Não
+Número do BO: __________________
+
+Danos Materiais:
+_________________________________________________
+_________________________________________________
+
+Providências Tomadas:
+_________________________________________________
+_________________________________________________
+
+Observações:
+_________________________________________________
+_________________________________________________
+
+___________________________________
+Assinatura do Motorista
+
+___________________________________
+Ciência do Gestor
+
+Anexar: fotos, documentos, laudos, etc.
+    </pre>
+
+    <div style="page-break-after: always;"></div>
+
+    <h3>7. Checklist de Vistoria do Veículo</h3>
+    <pre>
+CHECKLIST DE VISTORIA - VEÍCULO OFICIAL
+
+Placa: ____________  Data: ___/___/______
+
+Motorista: ____________________________________
+
+KM Atual: __________
+
+ITENS A VERIFICAR:
+
+DOCUMENTAÇÃO:
+[ ] CRLV (licenciamento) válido
+[ ] Seguro em dia
+[ ] Certificado de vistoria DETRAN
+
+EXTERNO:
+[ ] Lataria (amassados, riscos)
+[ ] Vidros (trincas, quebras)
+[ ] Faróis e lanternas
+[ ] Pneus (calibragem e desgaste)
+[ ] Limpadores de para-brisa
+
+INTERNO:
+[ ] Painel (luzes de alerta)
+[ ] Bancos e cintos de segurança
+[ ] Ar condicionado
+[ ] Rádio/som
+[ ] Limpeza geral
+
+MECÂNICO:
+[ ] Nível de óleo
+[ ] Nível de água
+[ ] Combustível
+[ ] Freios
+[ ] Direção
+
+SEGURANÇA:
+[ ] Estepe
+[ ] Macaco e chave de roda
+[ ] Triângulo
+[ ] Extintor (validade)
+
+OBSERVAÇÕES:
+_________________________________________________
+_________________________________________________
+
+AVALIAÇÃO GERAL:
+[ ] APROVADO - Veículo em condições de uso
+[ ] ATENÇÃO - Requer manutenção breve
+[ ] REPROVADO - Não usar até conserto
+
+___________________________________
+Assinatura do Motorista
+
+___________________________________
+Ciência do Gestor
+
+Próxima vistoria: ___/___/______
+    </pre>
+
+</body>
+
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Manual do Motorista - Gestão de Veículos</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #d35400;
+            margin-bottom: 10px;
+            font-size: 28pt;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            font-size: 18pt;
+            border-bottom: 1px solid #eee;
+        }
+
+        h3 {
+            color: #e67e22;
+            margin-top: 25px;
+            font-size: 14pt;
+        }
+
+        .highlight-box {
+            background-color: #fcf3cf;
+            border-left: 5px solid #f1c40f;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 11pt;
+        }
+
+        .warning-box {
+            background-color: #fff3f3;
+            border-left: 5px solid #c0392b;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background-color: #f0fff4;
+            border-left: 5px solid #27ae60;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        ul,
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .link-box {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            word-break: break-all;
+        }
+
+        blockquote {
+            font-style: italic;
+            border-left: 3px solid #ccc;
+            padding-left: 15px;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .print-btn {
+            background-color: #d35400;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .link-box a {
+                text-decoration: none;
+                color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="window.print()" class="print-btn">🖨️ Imprimir Manual / Salvar PDF</button>
+
+    <div class="header">
+        <h1>MANUAL DO MOTORISTA</h1>
+        <p>Sistema de Gestão de Veículos • Versão 1.0 • Janeiro 2025</p>
+    </div>
+
+    <h2>📱 ACESSO RÁPIDO</h2>
+    <p><strong>Links que você vai usar:</strong></p>
+
+    <div class="link-box">
+        <h3>🚀 Iniciar Corrida</h3>
+        <p><a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfJBrIVov8OH57_Y_pcBuR7pUHNP9BxiLN860Y5BMbBFqpU7Q/viewform">https://docs.google.com/forms/d/e/1FAIpQLSfJBrIVov8OH57_Y_pcBuR7pUHNP9BxiLN860Y5BMbBFqpU7Q/viewform</a>
+        </p>
+
+        <h3 style="margin-top: 20px; color: #c0392b;">🏁 Encerrar Corrida</h3>
+        <p><a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScssgCZVCqya2RCwXDqfBePjp842Jp8DcdKfTMCfbksqhjQWw/viewform">https://docs.google.com/forms/d/e/1FAIpQLScssgCZVCqya2RCwXDqfBePjp842Jp8DcdKfTMCfbksqhjQWw/viewform</a>
+        </p>
+
+        <p style="margin-top: 15px;"><small>💡 DICA: Salve estes links nos favoritos do seu celular!</small></p>
+    </div>
+
+    <h2>🎯 SUAS RESPONSABILIDADES</h2>
+    <div class="success-box">
+        <p>Como motorista, você deve:</p>
+        <ol>
+            <li>✅ Registrar o <strong>INÍCIO</strong> de cada corrida (antes de sair)</li>
+            <li>✅ Registrar o <strong>FIM</strong> de cada corrida (ao retornar)</li>
+            <li>✅ Anotar <strong>CORRETAMENTE</strong> a quilometragem</li>
+            <li>✅ Informar qualquer problema ou ocorrência</li>
+        </ol>
+    </div>
+
+    <div style="page-break-after: always;"></div>
+
+    <h2>🚀 COMO INICIAR UMA CORRIDA</h2>
+    <h3>ANTES DE SAIR DO ESTACIONAMENTO:</h3>
+    <ol>
+        <li><strong>Prepare o veículo:</strong> Verifique combustível, pneus e documentos.</li>
+        <li><strong>Anote a quilometragem:</strong> Olhe o hodômetro e anote o KM EXATO (ex: 45.678).</li>
+        <li><strong>Abra o formulário:</strong> Use o link "Iniciar Corrida".</li>
+        <li><strong>Preencha os campos:</strong>
+            <ul>
+                <li>📋 <strong>Selecione a Solicitação:</strong> Escolha a viagem na lista. (Ex: SOL-2025... - Hospital
+                    Central)</li>
+                <li>👤 <strong>Motorista:</strong> Selecione seu nome.</li>
+                <li>🚗 <strong>Placa do Veículo:</strong> Digite a placa.</li>
+                <li>📏 <strong>KM Inicial:</strong> Digite o KM anotado. <strong>ATENÇÃO:</strong> Confira antes de
+                    enviar!</li>
+                <li>📝 <strong>Observações:</strong> Se houver algo importante (Ex: "Pneu baixo").</li>
+            </ul>
+        </li>
+        <li><strong>Envie:</strong> Revise e clique em Enviar.</li>
+        <li><strong>PRONTO!</strong> Pode sair!</li>
+    </ol>
+
+    <h2>🏁 COMO ENCERRAR UMA CORRIDA</h2>
+    <h3>AO RETORNAR AO ESTACIONAMENTO:</h3>
+    <ol>
+        <li><strong>Antes de desligar:</strong> Olhe o hodômetro e anote o KM EXATO (ex: 45.720).</li>
+        <li><strong>Abra o formulário:</strong> Use o link "Encerrar Corrida".</li>
+        <li><strong>Preencha os campos:</strong>
+            <ul>
+                <li>📋 <strong>Selecione a Corrida:</strong> Escolha a corrida que acabou de fazer.</li>
+                <li>📏 <strong>KM Final:</strong> Digite o KM atual. <strong>DEVE ser MAIOR que o inicial!</strong></li>
+                <li>📝 <strong>Observações Finais:</strong> Relate problemas ou gastos (Ex: "Abasteci R$ 150").</li>
+            </ul>
+        </li>
+        <li><strong>Envie:</strong> Clique em Enviar.</li>
+        <li><strong>PRONTO!</strong> Corrida encerrada!</li>
+    </ol>
+
+    <div style="page-break-after: always;"></div>
+
+    <h2>⚠️ ATENÇÃO - MUITO IMPORTANTE</h2>
+    <div class="warning-box">
+        <h3>❌ ERROS COMUNS:</h3>
+        <ul>
+            <li><strong>Inverter os KMs:</strong> KM Final menor que Inicial dá erro. Chame o gestor se errar.</li>
+            <li><strong>Esquecer de registrar:</strong> Registre SEMPRE antes de sair e logo ao voltar.</li>
+            <li><strong>KM errado:</strong> Confira 2 vezes. Erros causam problemas na prestação de contas.</li>
+            <li><strong>Omissão:</strong> Sempre relate acidentes, abastecimentos e problemas mecânicos.</li>
+        </ul>
+    </div>
+
+    <h2>📋 CHECKLIST DO MOTORISTA</h2>
+    <div class="highlight-box">
+        <h3>✅ ANTES DE CADA VIAGEM:</h3>
+        <ul>
+            <li>[ ] Verifiquei o veículo</li>
+            <li>[ ] Anotei o KM inicial</li>
+            <li>[ ] Preenchi o formulário "Iniciar Corrida"</li>
+            <li>[ ] Tenho contatos de emergência</li>
+        </ul>
+        <h3>✅ AO RETORNAR:</h3>
+        <ul>
+            <li>[ ] Anotei o KM final</li>
+            <li>[ ] Preenchi o formulário "Encerrar Corrida"</li>
+            <li>[ ] Relatei ocorrências</li>
+            <li>[ ] Entreguei as chaves</li>
+        </ul>
+    </div>
+
+    <h2>🆘 E SE DER PROBLEMA?</h2>
+    <ul>
+        <li><strong>Esqueceu de iniciar?</strong> Pare, anote o KM atual, preencha e avise nas observações.</li>
+        <li><strong>Esqueceu de encerrar?</strong> Preencha no dia seguinte com o KM de chegada e avise.</li>
+        <li><strong>Digitou KM errado?</strong> NÃO corrija sozinho. Avise o gestor para corrigir no sistema.</li>
+        <li><strong>Acidente?</strong> PARE TUDO. Siga o protocolo, tire fotos e avise o gestor.</li>
+        <li><strong>Sem internet?</strong> Anote tudo em papel e preencha assim que possível.</li>
+    </ul>
+
+    <div style="page-break-after: always;"></div>
+
+    <h2>💡 DICAS PROFISSIONAIS</h2>
+    <ul>
+        <li>📱 <strong>Salve os links:</strong> Tenha atalhos na tela inicial do celular.</li>
+        <li>🔋 <strong>Bateria:</strong> Mantenha o celular carregado.</li>
+        <li>📝 <strong>Backup em papel:</strong> Tenha um bloquinho para anotar KM caso o celular falhe.</li>
+        <li>⏱️ <strong>Imediatismo:</strong> Não deixe para depois, você vai esquecer detalhes.</li>
+    </ul>
+
+    <h2>❓ PERGUNTAS FREQUENTES</h2>
+    <ul>
+        <li><strong>P: Posso fazer mais de uma corrida por dia?</strong> R: Sim, registre cada uma separadamente.</li>
+        <li><strong>P: Solicitação não aparece?</strong> R: Não foi aprovada ainda. Contate o gestor.</li>
+        <li><strong>P: Viagem curta precisa registrar?</strong> R: SIM! Todas, sem exceção.</li>
+        <li><strong>P: Uso pessoal?</strong> R: PROIBIDO! Uso exclusivo para serviço.</li>
+    </ul>
+
+    <blockquote>
+        ✨ Lembre-se: Você é responsável pelo patrimônio público. Precisão e honestidade são fundamentais. Boa viagem!
+    </blockquote>
+
+</body>
+
+</html>
